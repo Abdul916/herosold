@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heroSOLD</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .bg-primary{
+            background-color: #5092ce !important;
+        }
+        .top_heading {
+            font-size: 23px;
+            font-weight: bold;
+        }
+        .hr {
+            border-top: 1px solid rgba(143, 147, 144, 0.64);
+            margin-top: 7px;
+            width: 52%;
+        }
+        .icon {
+            padding-top: 0.3em !important;
+            font-size: 22px !important;
+        }
+
+        .form-label{
+            font-size: 22px;
+            font-weight: bolder;
+
+        }
+
+        #agentPricePercentageLabel,
+        #pricePercentageLabel,
+        #percentage {
+            font-weight: bold;
+        }
+        .range-slider {
+            position: relative;
+            width: 100%;
+            height: 4px;
+            border-radius: 5px;
+        }
+        .card {
+            height: 100%;
+
+            background-color: #5092ce;
+        }
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .card-text{
+            margin-bottom: 0.2em;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -13px;
+            left: 5%;
+            transform: translateX(-50%);
+            padding: 0px 8px;
+            background-color: #5092ce;
+            color: #fff;
+            border-radius: 2px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .range_input_upper {
+            -webkit-appearance: none ;
+            appearance: none ;
+            width: 100% ;
+            cursor: pointer ;
+            outline: none ;
+            height: 4px ;
+            border-radius: 30px;
+        }
+
+        .range_input_upper::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 25px;
+            width: 25px;
+            background-color: #5092ce;
+            border-radius: 50%;
+            border: none;
+            transition: .2s ease-in-out;
+        }
+
+        .range_input_upper::-moz-range-thumb {
+            height: 25px;
+            width: 25px;
+            background-color: #5092ce;
+            border-radius: 50%;
+            border: none;
+            transition: .2s ease-in-out;
+        }
+
+        .range_input_lower {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 80%;
+            cursor: pointer;
+            outline: none;
+            border-radius: 15px;
+            height: 2px;
+        }
+
+        .range_input_lower::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 15px;
+            width: 15px;
+            background-color: #060706;
+            border-radius: 50%;
+            border: none;
+            transition: .2s ease-in-out;
+        }
+
+        .range_input_lower::-moz-range-thumb {
+            height: 15px;
+            width: 15px;
+            background-color: #060706;
+            border-radius: 50%;
+            border: none;
+            transition: .2s ease-in-out;
+        }
+
+        .note {
+            font-size: 17px;
+            color: #c6c6c6;
+        }
+        .bottom_heading {
+            font-size: 42.66px;
+        }
+
+        @media screen and (max-width: 560px) {
+            .bottom_heading {
+                font-size: 28px;
+            }
+
+            #silder_amount {
+                font-size: 36px;
+            }
+
+            .note {
+                font-size: 14px;
+                color: #c6c6c6;
+            }
+
+            .range_labal {
+                font-size: 18px;
+            }
+
+            .range_price {
+                font-size: 24px
+            }
+
+
+        }
+
+        .range_labal {
+            font-size: 22.25px;
+        }
+
+        .range_price {
+            font-size: 29.26px;
+        }
+
+        .py-5 {
+            padding-top: 4.5rem !important;
+        }
+
+        #percentage {
+            font-size: 57.29px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="d-flex flex-column align-items-center">
+                    <h4 class="top_heading text-center mb-0">
+                        How much can i save with heroSOLD ?
+                    </h4>
+                    <hr class="hr" >
+                </div>
+                <div class="range my-1">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <label for="label" class="range_labal form-label">Listing Price</label>
+                        <label for="maxValue" class="form-label">
+                            <span class="range_price" id="price">$300,000</span>
+                            <span class="d-none" id="maxValue">5000000</span>
+                        </label>
+                    </div>
+                    <input type="range" class="range-slider range_input_upper form-range w-100" id="priceRange" value="300000" min="300000" max="5000000"  >
+                    <div class="d-none bubble">$300,000</div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Agent Fees With heroSOLD</h5>
+                                <p class="card-text"> Listing fees start as low as 1-1.5% </p>
+                                <p class="card-text"> Optional Buyer Agent Fee 0-3% </p>
+                                <input type="range" class="range_input_lower form-range" min="0" max="3.0" step="0.25" value="0" id="percentageRange">
+                                <p class="card-text mt-2" style="font-size: 13px;">
+                                    <span id='initialPercentage'>1.5%</span> Listing Agent +
+                                    <span id="buyer-fee"></span> Buyer Agent Fee =
+                                    <span id="totalPercentage"></span>
+                                </p>
+                                <div class="d-flex justify-content-end">
+                                    <h4 id="pricePercentageLabel">$5700</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mt-md-0 mt-sm-3 mt-3 mt-lg-0">
+                        <div class="card">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title">Compared to a 6% Agent Fee Model</h5>
+                                <div class="d-flex justify-content-end">
+                                    <h4 class="card-text" id="agentPricePercentageLabel">$22800</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="text-center mt-5">
+                    <h1><strong>
+                        <div class="d-flex justify-content-center">
+                            <i class="icon fa-solid fa-quote-left"></i>
+                            <span class="bottom_heading">Potential saving with
+                                <span class="bg-primary px-2">heroSOLD</span>
+                            </span>
+                            <i class="icon fa-solid fa-quote-right"></i>
+                        </div>
+                    </strong></h1>
+                    <h1 id="percentage" class="mt-3">$17100</h1>
+                </div>
+
+                <div class="text-center mt-4">
+                    <p class="note mt-3">Commission rates are negotiable, and our example of 6% is just an example to compare to.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const rangeSlider = document.getElementById('priceRange');
+        const bubble = document.querySelector('.bubble');
+        const priceLabel = document.getElementById('price');
+        const maxValueLabel = document.getElementById('maxValue');
+        const percentageSpan = document.getElementById('percentage');
+        const percentageRange = document.getElementById('percentageRange');
+        const buyerFee = document.getElementById('buyer-fee');
+        const totalPercentage = document.getElementById('totalPercentage');
+        const initialPercentage = document.getElementById('initialPercentage');
+        const pricePercentageLabel = document.getElementById('pricePercentageLabel');
+        const agentPricePercentageLabel = document.getElementById('agentPricePercentageLabel');
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        calculateTotalPercentage();
+
+        const value = rangeSlider.value;
+        const position = (value - rangeSlider.min) / (rangeSlider.max - rangeSlider.min) * 100;
+        rangeSlider.style.background = `linear-gradient(to right, #fff ${position}%, #5092ce ${position}%)`;
+
+
+
+        rangeSlider.addEventListener('input', function() {
+            const value = this.value;
+            if (value <= 525000) {
+                initialPercentage.textContent = '1.5%';
+            } else if (value > 525000 && value <= 700000) {
+                initialPercentage.textContent = '1.25%';
+            } else if (value > 700000 && value <= 5000000) {
+                initialPercentage.textContent = '1%';
+            } else {
+                initialPercentage.textContent = '';
+            }
+            const position = (value - this.min) / (this.max - this.min) * 100;
+            this.style.background = `linear-gradient(to right, #fff ${position}%, #5092ce ${position}%)`;
+
+            bubble.textContent = '$'+numberWithCommas(value);
+            if (position > 50) {
+                bubble.style.left = `calc(${position}% + (${-28 - position * 0.15}px))`;
+            } else {
+                bubble.style.left = `calc(${position}% + (${37 - position * 0.15}px))`;
+            }
+            priceLabel.textContent = '$'+ numberWithCommas(value);
+            calculateTotalPercentage();
+        });
+
+        const pv = percentageRange.value;
+        const pposition = (pv - percentageRange.min) / (percentageRange.max - percentageRange.min) * 100;
+        percentageRange.style.background = `linear-gradient(to right, #fff ${pposition}%, #000 ${pposition}%)`;
+
+
+        percentageRange.addEventListener('input', function() {
+            const pv = this.value;
+            const pposition = (pv - this.min) / (this.max - this.min) * 100;
+            this.style.background = `linear-gradient(to right, #fff ${pposition}%, #060706 ${pposition}%)`;
+            calculateTotalPercentage();
+        });
+
+        function calculateTotalPercentage() {
+            const price = parseFloat(rangeSlider.value);
+
+            if (price <= 525000) {
+                initialPercentage_value = 1.5;
+            } else if (price > 525000 && price <= 700000) {
+                initialPercentage_value = 1.25;
+            } else if (price > 700000 && price <= 5000000) {
+                initialPercentage_value = 1;
+            } else {
+                initialPercentage_value = '';
+            }
+
+            const agentPercentage = 6;
+            const agentPrice = (price * agentPercentage / 100).toFixed(0);
+            agentPricePercentageLabel.textContent = '$' + numberWithCommas(agentPrice);
+            const percentage1 = parseFloat(percentageRange.value);
+            if (percentage1 == 0.0 ) {
+                buyerFee.textContent = percentage1.toFixed(0) + "%";
+            } else {
+                buyerFee.textContent = percentage1.toFixed(2) + "%";
+            }
+            // const calculatedPercentage = percentage1 + 1.5;
+            const calculatedPercentage = percentage1 + initialPercentage_value;
+            totalPercentage.textContent = calculatedPercentage.toFixed(1) + '%';
+            const buyerPrice = (price * calculatedPercentage / 100).toFixed(0);
+            pricePercentageLabel.textContent = '$' + numberWithCommas(buyerPrice);
+            const difference = agentPrice - buyerPrice;
+            percentageSpan.textContent = '$' + numberWithCommas(difference);
+        }
+    </script>
+</body>
+</html>
